@@ -1,4 +1,4 @@
-# SQL Task Agent
+# TaskFlow AI
 
 A conversational AI task manager that allows you to interact with a SQLite database using **natural language**.
 
