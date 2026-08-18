@@ -16,7 +16,7 @@ DB_PATH = "my_tasks.db"
 # Page config — must be the first Streamlit call
 # ──────────────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Tasks",
+    page_title="TaskFlow AI",
     page_icon="✅",
     layout="centered",
     initial_sidebar_state="expanded",
@@ -207,6 +207,8 @@ model = ChatGroq(
     model="qwen/qwen3.6-27b"
 )
 
+
+
 toolkit = SQLDatabaseToolkit(db=db, llm=model)
 tools = toolkit.get_tools()
 
@@ -290,7 +292,7 @@ def get_task_counts():
 def run_agent(question: str):
     st.session_state.messages.append({"role": "user", "content": question})
     st.chat_message("user", avatar="🧑").markdown(question)
-    with st.chat_message("assistant", avatar="⛃"):
+    with st.chat_message("assistant", avatar="✅"):
         with st.spinner("Working on it…"):
             response = agent.invoke(
                 {"messages": [{"role": "user", "content": question}]},
@@ -305,7 +307,7 @@ def run_agent(question: str):
 # Sidebar
 # ──────────────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown('<div class="sidebar-title">&nbsp; Tasks Assistant</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-title">&nbsp; TaskFlow AI</div>', unsafe_allow_html=True)
     st.caption("A conversational front end for your SQLite task list.")
     st.markdown("---")
 
@@ -334,7 +336,7 @@ st.markdown(
     """
     <div class="hero">
         <span class="badge">SQL Agent</span>
-        <h1>Task Manager</h1>
+        <h1>TaskFlow AI</h1>
         <p>Talk to your task list in plain English.</p>
     </div>
     """,
