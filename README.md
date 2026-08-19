@@ -106,7 +106,7 @@ The SQLite database is generated locally and should not be committed to the repo
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/sql-task-agent.git
+git clone https://github.com/Sauharda-py/TaskFlow-AI
 cd sql-task-agent
 ```
 
